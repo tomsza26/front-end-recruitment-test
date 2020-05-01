@@ -76,4 +76,10 @@
   }
 
   // Your custom JavaScript goes here
+
+  // Task 1 - Bacon onClick
+  document.getElementById('addBacon').addEventListener('click', ()=>{
+    document.getElementById('baconCont').innerHTML +=
+    document.querySelector('img[alt="Bacon"]').outerHTML;
+  });
 })();
