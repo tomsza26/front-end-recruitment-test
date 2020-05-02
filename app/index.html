@@ -51,6 +51,7 @@
 
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/src/form.css">
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -68,6 +69,7 @@
           <a href="#features" class="mdl-layout__tab">Details</a>
           <a href="#features" class="mdl-layout__tab">Technology</a>
           <a href="#features" class="mdl-layout__tab">FAQ</a>
+          <a href="#checkout" class="mdl-layout__tab">CHECKOUT</a>
           <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
             <i class="material-icons" role="presentation">add</i>
             <span class="visuallyhidden">Add</span>
@@ -225,6 +227,126 @@
               <p>
                 Cupidatat labore nisi ut sunt voluptate quis sunt qui ad Lorem esse nisi. Ex esse velit ullamco incididunt occaecat dolore veniam tempor minim adipisicing amet. Consequat in exercitation est elit anim consequat cillum sint labore cillum. Aliquip mollit laboris ad labore anim.
               </p>
+            </div>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="checkout">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col" id="sectionForForm">
+              <form id="formTask" method="POST">
+                <header class="formHeader">
+                  <span class="formNumber">1</span>
+                  <span class="formName">personal information</span>
+                </header>
+
+                <div class="formInputCont">
+
+                  <div class="formBigLab f__name">
+                    <label for="formName" class="formLabel">First name</label>
+                    <input type="text" placeholder="Elon" id="formName" />
+                  </div>
+                    
+                  <div class="formBigLab f__surname">
+                    <label for="formSurname" class="formLabel">Last name</label>
+                    <input type="text" placeholder="Musk" id="formSurname" />
+                  </div>
+                    
+                  <div class="formBigLab f__email">
+                    <label for="formEmail" class="formLabel">Email</label>
+                    <input type="email" placeholder="elon@spacex.com" id="formEmail" />
+                  </div>
+                    
+                  <div class="formBigLab f__country">
+                    <label for="formCountry" class="formLabel">Country</label>
+                    <select id="formCountry">
+                      <option value="Afganistan">Afghanistan</option>
+                      <option value="Albania">Albania</option>
+                      <option value="Algeria">Algeria</option>
+                      <option value="American Samoa">American Samoa</option>
+                      <option value="Andorra">Andorra</option>
+                      <option value="United States" selected>United States</option>
+                    </select>
+                    <img src="http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png" alt="arrow down" class="formArrow" />
+                  </div>
+                    
+                  <div class="formBigLab f__post">
+                    <label for="formPost" class="formLabel">Postal Code</label>
+                    <input type="number" placeholder="10001" id="formPost" />
+                  </div>
+
+                  <div class="formBigLab f__tel">
+                    <label for="formTel" class="formLabel">Phone Number</label>
+                    <input type="tel" placeholder="(212) 692-93-92" id="formTel" />
+                  </div>
+                  
+                </div>
+
+                <header class="formHeader">
+                  <span class="formNumber">2</span>
+                  <span class="formName">payment details</span>
+                  <span id="formHttps" class="icon material-icons">https</span>
+                </header>
+
+                <div class="formInputCont">
+
+                  <div class="formBigLab f__card">
+                    <label for="formCard" class="formLabel">Credit Card Number</label>
+                    <input type="tel" placeholder="0000 — 0000 — 0000 — 0000" id="formCard" />
+                    <img src="./images/cards/visa.png" alt="card mark" id="formCardImg" />
+                  </div>
+                  
+                  <div class="formBigLab f__code">
+                    <label for="formCode" class="formLabel">Security code</label>
+                    <input type="number" minlength="3" maxlength="3" placeholder="***" id="formCode" />
+                    <div id="formPopup">
+                      <div id="formQuestion" class="icon material-icons">help_outline</div>
+                      <span class="popupText" id="popupFormId">Your card's security code (CVV) is the 3 or 4 digit number located on the back of most cards.
+                      </br>
+                      <img src="./images/cards/cvv.png" alt="cvv" id="formCVVimg" />
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="formBigLab f__exp">
+                    <label for="formExp" class="formLabel">Expiration date</label>
+                    <input type="text" placeholder="MM / YY" id="formExp" />
+                  </div>
+                  
+                  <button type="submit" id="formSubmit">
+                    <span id="formCart" class="icon material-icons">shopping_cart</span>complete purchase
+                  </button>
+
+                </div>
+              </form>
+              <div id="formCardSection">
+                <div class="cardBorder">
+                  <div class="cardSection">
+                    <div class="cardHeader">your order</div>
+                    <div class="cardProd">
+                      <span class="cardLeft">Apple Watch Sport</span>
+                      <span class="cardRight">$ 580</span>
+                    </div>
+                    <div class="cardProd">
+                      <span class="cardLeft">Modern Buckle</span>
+                      <span class="cardRight">$ 380</span>
+                    </div>
+                  </div>
+                  <div class="cardSection">
+                    <div class="cardProd">
+                      <span class="cardLeft">Total purcharses</span>
+                      <span class="cardRight">$ 960.00</span>
+                    </div>
+                    <div class="cardProd">
+                      <span class="cardLeft">Estimated tax</span>
+                      <span class="cardRight">$ 0</span>
+                    </div>
+                  </div>
+                  <div class="cardSum">
+                    <span class="cardLeftSum">Total</span>
+                    <span class="cardRightSum">$ 960</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </div>

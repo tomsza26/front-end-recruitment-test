@@ -1,0 +1,355 @@
+#checkout {
+  background: #f2f2f2 !important;
+
+  .section--center.mdl-grid.mdl-grid--no-spacing {
+    #sectionForForm {
+      display: flex;
+      align-items: flex-start;
+      font-family: Roboto, sans-serif !important;
+
+      #formTask {
+        width: 60%;
+
+        .formHeader {
+          text-transform: uppercase;
+          font-weight: 900;
+          display: flex;
+          align-items: center;
+
+          .formNumber {
+            font-size: 16px;
+            color: #fff;
+            background: #000;
+            width: 23px;
+            height: 23px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+          }
+
+          .formName {
+            color: #000;
+            font-size: 12px;
+            padding-left: 7px;
+          }
+
+          #formHttps {
+            color: #000;
+            font-size: 15px;
+            padding: 0 0 5px 10px;
+          }
+        }
+
+        .formInputCont {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          margin: 12px 5px 12px 31px;
+          color: #000;
+          grid-column-gap: 10px;
+
+          .formBigLab {
+            font-weight: 800;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            margin-bottom: 15px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 0px 0px rgba(217, 217, 217, 1);
+
+            &.f__email,
+            &.f__tel,
+            &.f__card {
+              grid-column: 1/3;
+            }
+
+            &.f__country {
+              position: relative;
+
+              #formCountry {
+                border: none;
+                font-size: 16px;
+                font-weight: 500;
+                -webkit-appearance: none;
+                cursor: pointer;
+              }
+
+              .formArrow {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translate(0, -50%);
+              }
+
+              @supports (-moz-appearance: none) {
+                #formCountry {
+                  text-indent: -2px;
+                }
+              }
+            }
+
+            &.f__card,
+            &.f__code {
+              position: relative;
+
+              #formPopup {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+
+                #formCVVimg {
+                  max-width: 100%;
+                }
+
+                .popupText {
+                  visibility: hidden;
+                  width: 160px;
+                  font-weight: 500;
+                  background-color: black;
+                  color: #fff;
+                  text-align: center;
+                  border-radius: 6px;
+                  padding: 8px;
+                  position: absolute;
+                  z-index: 1;
+                  bottom: 100%;
+                  left: 50%;
+                }
+
+                .popupText::after {
+                  content: "";
+                  position: absolute;
+                  top: 100%;
+                  left: 50%;
+                  margin-left: -5px;
+                  border-width: 5px;
+                  border-style: solid;
+                  border-color: black transparent transparent transparent;
+                }
+
+                & .bshow {
+                  visibility: visible;
+                  -webkit-animation: fadeIn 1s;
+                  animation: fadeIn 1s;
+                }
+
+                @-webkit-keyframes fadeIn {
+                  from {
+                    opacity: 0;
+                  }
+                  to {
+                    opacity: 1;
+                  }
+                }
+
+                @keyframes fadeIn {
+                  from {
+                    opacity: 0;
+                  }
+                  to {
+                    opacity: 1;
+                  }
+                }
+              }
+
+              #formCardImg,
+              #formQuestion {
+                position: absolute;
+                max-width: 100%;
+                width: 50px;
+                right: 25px;
+                top: 50%;
+                max-height: 100%;
+                transform: translate(0, -50%);
+              }
+
+              #formQuestion {
+                right: 15px;
+                width: auto;
+                color: #adadad;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                cursor: pointer;
+              }
+            }
+
+            &.f__post,
+            &.f__code {
+              input::-webkit-outer-spin-button,
+              input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+              }
+
+              input[type=number] {
+                -moz-appearance: textfield;
+              }
+            }
+
+            .formLabel {
+              font-size: 15px;
+              font-weight: 700;
+            }
+
+            input {
+              border: none;
+              font-size: 18px;
+              font-weight: 500;
+              line-height: 23px;
+              padding: 0;
+              font-family: Roboto, sans-serif;
+            }
+
+            input::placeholder {
+              color: #333;
+            }
+          }
+
+          #formSubmit {
+            grid-column: 1/3;
+            background: #6bd400;
+            font-weight: 800;
+            font-size: 17px;
+            color: #fff;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 59px;
+            box-shadow: 0px 2px 0px 0px rgb(168, 168, 168);
+            margin-top: 15px;
+
+            #formCart {
+              color: #fff;
+              font-size: 20px;
+              padding-right: 5px;
+            }
+          }
+
+          #formSubmit:hover {
+            transition: 0.6s ease;
+            background: #73e600;
+          }
+
+          #formSubmit:active {
+            transition: 0.1s;
+            transform: translateY(1px);
+            box-shadow: 0px 1px 0px 0px rgb(168, 168, 168);
+          }
+        }
+      }
+
+      #formCardSection {
+        background: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        color: #000;
+        width: calc(40% - 10px);
+        margin-top: 34px;
+        margin-left: 10px;
+        box-shadow: 0px 2px 0px 0px rgba(217, 217, 217, 1);
+
+        .cardBorder {
+          border: 2px dotted #dcdcdc;
+          padding: 15px;
+
+          .cardSection {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 2px dashed #dcdcdc;
+            padding-bottom: 25px;
+
+            .cardHeader {
+              text-transform: uppercase;
+              font-weight: 800;
+              text-align: left;
+              margin-bottom: 7px;
+            }
+
+            .cardProd {
+              display: flex;
+              margin-top: 8px;
+              justify-content: space-between;
+            }
+          }
+
+          .cardSection:nth-of-type(2) {
+            padding-bottom: 15px;
+          }
+
+          .cardSum {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 20px 0;
+            font-weight: 800;
+
+            .cardRightSum {
+              font-size: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #checkout {
+    .section--center.mdl-grid.mdl-grid--no-spacing {
+      #sectionForForm {
+        flex-direction: column;
+        align-items: center;
+
+        #formTask {
+          width: 95%;
+        }
+
+        #formCardSection {
+          width: calc(95% - 46px);
+          margin: 20px 10px 40px 36px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #checkout {
+    .section--center.mdl-grid.mdl-grid--no-spacing {
+      #sectionForForm {
+        #formTask {
+          .formInputCont {
+            margin: 12px 0;
+
+            .formBigLab {
+              grid-column: 1/3;
+
+              #formPopup {
+                #popupFormId {
+                  left: 25%;
+                }
+              }
+
+              #formCardImg {
+                display: none;
+              }
+            }
+          }
+        }
+        #formCardSection {
+          width: 95%;
+          margin: 20px 0 40px 0;
+        }
+      }
+    }
+  }
+}

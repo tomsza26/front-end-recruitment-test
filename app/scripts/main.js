@@ -78,8 +78,24 @@
   // Your custom JavaScript goes here
 
   // Task 1 - Bacon onClick
-  document.getElementById('addBacon').addEventListener('click', ()=>{
-    document.getElementById('baconCont').innerHTML +=
-    document.querySelector('img[alt="Bacon"]').outerHTML;
-  });
+  if (document.getElementById('addBacon')) {
+    document.getElementById('addBacon').addEventListener('click', () => {
+      document.getElementById('baconCont').innerHTML +=
+        document.querySelector('img[alt="Bacon"]').outerHTML;
+    });
+  }
+
+  // Task 2 - Styling
+
+  if (document.getElementById('formQuestion')) {
+    document.getElementById('formQuestion').addEventListener('click', () => {
+      document.querySelector('#popupFormId').classList.toggle('bshow');
+    });
+  }
+
+  if (document.getElementById('formSubmit')) {
+    document.getElementById('formSubmit').addEventListener('click', () => {
+      event.preventDefault();
+    });
+  }
 })();
