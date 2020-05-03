@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 /*
  *
  *  Web Starter Kit
@@ -85,7 +86,7 @@
     });
   }
 
-  // Task 2 - Styling
+  // Task 2 - Styling, Task 3 - Submitting
 
   if (document.getElementById('formQuestion')) {
     document.getElementById('formQuestion').addEventListener('click', () => {
@@ -96,6 +97,125 @@
   if (document.getElementById('formSubmit')) {
     document.getElementById('formSubmit').addEventListener('click', () => {
       event.preventDefault();
+      const formName = document.getElementById('formName').checkValidity();
+      const formSurname = document.getElementById('formSurname').checkValidity();
+      const formEmail = document.getElementById('formEmail').checkValidity();
+      const formPost = document.getElementById('formPost').checkValidity();
+      const formTel = document.getElementById('formTel').checkValidity();
+      const formCard = document.getElementById('formCard').checkValidity();
+      const formCode = document.getElementById('formCode').checkValidity();
+      const formExp = document.getElementById('formExp').checkValidity();
+
+      const momentOfTruth = [formName, formSurname, formEmail, formPost, formTel, formCard, formCode, formExp];
+      if (momentOfTruth.every((v)=> v === true)) {
+        alert('Form Submitted!');
+      } else {
+        alert('Values in form are not valid!');
+      }
     });
+
+    function setInputFilter(textbox, inputFilter) {
+      ['input', 'keydown', 'keyup', 'mousedown', 'mouseup', 'select', 'contextmenu', 'drop'].forEach(function(event) {
+        textbox.addEventListener(event, function() {
+          if (inputFilter(this.value)) {
+            this.oldValue = this.value;
+            this.oldSelectionStart = this.selectionStart;
+            this.oldSelectionEnd = this.selectionEnd;
+          } else if (this.hasOwnProperty('oldValue')) {
+            this.value = this.oldValue;
+            this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+          } else {
+            this.value = '';
+          }
+        });
+      });
+    }
+
+    function cc_format(value) {
+      if (value.length > 0 && value.length < 5 ) {
+        const cutted = value.substring(0, 2);
+        if (value[0] === '4') {
+          document.getElementById('formCardImg').src = '../images/cards/visa.png';
+        } else if ((value.length > 1) && (cutted === '34' || cutted === '37')) {
+          document.getElementById('formCardImg').src = '../images/cards/american-express.png';
+        } else if (value.length > 1) {
+          const testVal1 = parseInt(cutted);
+          if (testVal1 > 50 && testVal1 < 56) {
+            document.getElementById('formCardImg').src = '../images/cards/mastercard.png';
+          } else if (value.length>3) {
+            const testVal2 = parseInt(value.substring(0, 4));
+            if (testVal2 > 2220 && testVal2 < 2721) {
+              document.getElementById('formCardImg').src = '../images/cards/mastercard.png';
+            }
+          }
+        } else {
+          document.getElementById('formCardImg').src = 'data:,';
+        }
+      } else if (value.length === 0) {
+        document.getElementById('formCardImg').src = '../images/cards/visa.png';
+      }
+
+      const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+      const matches = v.match(/\d{4,16}/g);
+      const match = matches && matches[0] || '';
+      const parts = [];
+      for (let i = 0, len = match.length; i < len; i += 4) {
+        parts.push(match.substring(i, i + 4));
+      }
+      if (parts.length) {
+        return parts.join(' — ');
+      } else {
+        return value;
+      }
+    }
+
+    function date_format(value) {
+      const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+      const matches = v.match(/\d{2,4}/g);
+      const match = matches && matches[0] || '';
+      const parts = [];
+      for (let i = 0, len = match.length; i < len; i += 2) {
+        parts.push(match.substring(i, i + 2));
+      }
+      if (parts.length) {
+        return parts.join(' / ');
+      } else {
+        return value;
+      }
+    }
+
+    setInputFilter(document.getElementById('formName'), function(value) {
+      return /^[a-z]*$/i.test(value);
+    });
+
+    setInputFilter(document.getElementById('formSurname'), function(value) {
+      return /^[a-z]*$/i.test(value);
+    });
+
+    setInputFilter(document.getElementById('formEmail'), function(value) {
+      return /^[a-zA-Z0-9@.]*$/i.test(value);
+    });
+
+    setInputFilter(document.getElementById('formTel'), function(value) {
+      return /^[0-9\(\).-\s]*$/i.test(value);
+    });
+
+    setInputFilter(document.getElementById('formPost'), function(value) {
+      return /^[0-9-]*$/i.test(value);
+    });
+
+    setInputFilter(document.getElementById('formCode'), function(value) {
+      return /^[0-9-]*$/i.test(value);
+    });
+
+    document.getElementById('formCard').oninput = function() {
+      this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');
+      this.value = cc_format(this.value);
+    };
+
+    document.getElementById('formExp').oninput = function() {
+      this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');
+      this.value = date_format(this.value);
+    };
   }
 })();

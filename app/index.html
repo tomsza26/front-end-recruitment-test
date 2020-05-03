@@ -243,17 +243,17 @@
 
                   <div class="formBigLab f__name">
                     <label for="formName" class="formLabel">First name</label>
-                    <input type="text" placeholder="Elon" id="formName" />
+                    <input type="text" placeholder="Elon" id="formName" required minlength="2" maxlength="50" />
                   </div>
                     
                   <div class="formBigLab f__surname">
                     <label for="formSurname" class="formLabel">Last name</label>
-                    <input type="text" placeholder="Musk" id="formSurname" />
+                    <input type="text" placeholder="Musk" id="formSurname" required minlength="2" maxlength="50"/>
                   </div>
                     
                   <div class="formBigLab f__email">
                     <label for="formEmail" class="formLabel">Email</label>
-                    <input type="email" placeholder="elon@spacex.com" id="formEmail" />
+                    <input type="email" placeholder="elon@spacex.com" id="formEmail" required minlength="2" maxlength="50"/>
                   </div>
                     
                   <div class="formBigLab f__country">
@@ -271,12 +271,12 @@
                     
                   <div class="formBigLab f__post">
                     <label for="formPost" class="formLabel">Postal Code</label>
-                    <input type="number" placeholder="10001" id="formPost" />
+                    <input type="tel" placeholder="10001" id="formPost" maxlength="20" />
                   </div>
 
                   <div class="formBigLab f__tel">
                     <label for="formTel" class="formLabel">Phone Number</label>
-                    <input type="tel" placeholder="(212) 692-93-92" id="formTel" />
+                    <input type="tel" placeholder="(212) 692-93-92" id="formTel" required maxlength="20" pattern=".{8,20}"/>
                   </div>
                   
                 </div>
@@ -291,13 +291,13 @@
 
                   <div class="formBigLab f__card">
                     <label for="formCard" class="formLabel">Credit Card Number</label>
-                    <input type="tel" placeholder="0000 — 0000 — 0000 — 0000" id="formCard" />
-                    <img src="./images/cards/visa.png" alt="card mark" id="formCardImg" />
+                    <input type="tel" placeholder="0000 — 0000 — 0000 — 0000" id="formCard" pattern=".{25,25}" required />
+                    <img src="./images/cards/visa.png" alt="" id="formCardImg" />
                   </div>
                   
                   <div class="formBigLab f__code">
                     <label for="formCode" class="formLabel">Security code</label>
-                    <input type="number" minlength="3" maxlength="3" placeholder="***" id="formCode" />
+                    <input type="tel" minlength="3" maxlength="4" placeholder="***" id="formCode" required pattern=".{3,4}"/>
                     <div id="formPopup">
                       <div id="formQuestion" class="icon material-icons">help_outline</div>
                       <span class="popupText" id="popupFormId">Your card's security code (CVV) is the 3 or 4 digit number located on the back of most cards.
@@ -309,7 +309,7 @@
 
                   <div class="formBigLab f__exp">
                     <label for="formExp" class="formLabel">Expiration date</label>
-                    <input type="text" placeholder="MM / YY" id="formExp" />
+                    <input type="text" placeholder="MM / YY" id="formExp" required pattern=".{7,7}" />
                   </div>
                   
                   <button type="submit" id="formSubmit">

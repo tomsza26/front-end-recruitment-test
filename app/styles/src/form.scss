@@ -209,6 +209,25 @@
             input::placeholder {
               color: #333;
             }
+
+            input:invalid {
+              border: none !important;
+              box-shadow: none !important;
+              -webkit-box-shadow: none !important;
+              border-bottom: 3px solid #fff !important;
+            }
+
+            input:focus:required:invalid {
+              border-bottom: 3px solid red !important;
+            }
+
+            input:focus:required:valid {
+              border-bottom: 3px solid green !important;
+            }
+
+            input:required:valid {
+              border-bottom: 3px solid green !important;
+            }
           }
 
           #formSubmit {
